@@ -1,5 +1,8 @@
 #include <stdio.h>
 
+/* 
+    Print the size of different data types
+*/
 int main() {
     printf("Size of char: %ld bits\n", sizeof(char)*8);
     printf("Size of short: %ld bits\n", sizeof(short)*8);
