@@ -1,0 +1,1 @@
+This chapter focused on an intro to C types, operators, and expressions including data types, constants, arithmetics, type conversions, and precedense.

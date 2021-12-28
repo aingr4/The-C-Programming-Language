@@ -1,0 +1,1 @@
+This chapter focused on an intro to C syntax including I/O, loops, variable declaration and definition, functions, and arrays.
