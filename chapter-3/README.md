@@ -1,4 +1,4 @@
-This chapter focused on an intro to C control flow.
+This chapter focused on an intro to C control flow. This includes if/else, switches, for/while loops, do-while loops, break/continue, and goto/labels.
 
 | Question |Answered?  |
 | :-------:|:---------:|

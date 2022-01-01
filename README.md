@@ -4,7 +4,8 @@ This repository contains my attempts to solve the exercises presented in the boo
 I do not guarantee the correctness of any of these exercises, I am just a software engineer learning a new language.
 
 There are makefiles in each exercise folder to help you run some of the C programs. Use the following command in a Linux shell. Tested in Ubuntu 20.04 LTS.
-```sh
+```shThis is interesting, looks like we can iterate over
+       an array of unknown size by writing a while loop
 make
 ```
 
