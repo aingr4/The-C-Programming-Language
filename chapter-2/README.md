@@ -1,14 +1,15 @@
+## Summary
 This chapter focused on an intro to C types, operators, and expressions including data types, constants, arithmetics, type conversions, and precedense.
 
 | Question |Answered?  |
 | :-------:|:---------:|
-| [2-1](2-1)      | Yes       |
-| [2-2](2-2)      | Yes       |
-| [2-3](2-3)      | Yes       |
-| [2-4](README.md)      | No       |
-| [2-5](README.md)       | No       |
-| [2-6](README.md)       | No       |
-| [2-7](README.md)       | No       |
-| [2-8](README.md)     | No       |
-| [2-9](README.md)       | No       |
-| [2-10](README.md)     | No       |
+| [2-1](2-1)       | Yes      |
+| [2-2](2-2)       | Yes      |
+| [2-3](2-3)       | Yes      |
+| [2-4](2-4)       | No       |
+| [2-5](2-5)       | No       |
+| [2-6](2-6)       | No       |
+| [2-7](2-7)       | No       |
+| [2-8](2-8)       | No       |
+| [2-9](2-9)       | No       |
+| [2-10](2-10)     | No       |

@@ -1,0 +1,2 @@
+# 1-11
+Testing the word count program with long strings of spaces, tabs or new lines. Also, writing the escape characters themselves or characters from other languages could potentially show bugs present in the program.
