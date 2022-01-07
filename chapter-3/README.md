@@ -12,5 +12,5 @@ This chapter focused on an intro to C control flow. This includes if/else, switc
 | [3-2](3-2)      | Yes       |
 | [3-3](3-3)      | Yes       |
 | [3-4](3-4)      | No       |
-| [3-5](3-5)      | No       |
-| [3-6](3-6)      | No       |
+| [3-5](3-5)      | Yes       |
+| [3-6](3-6)      | Yes       |
