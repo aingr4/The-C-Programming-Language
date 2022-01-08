@@ -9,7 +9,7 @@ int main() {
     int n;
     char s[100];
 
-    n = -1234;
+    n = -2147483647;
 
     itoa(n, s);
 

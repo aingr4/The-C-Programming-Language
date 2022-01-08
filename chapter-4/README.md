@@ -6,8 +6,8 @@ This chapter focused on an intro to functions and program structure in C.
 
 | Question |Answered?  |
 | :-------:|:---------:|
-| [4-1](4-1)      | No       |
-| [4-2](4-2)      | No       |
+| [4-1](4-1)      | Yes       |
+| [4-2](4-2)      | Yes       |
 | [4-3](4-3)      | No       |
 | [4-4](4-4)      | No       |
 | [4-5](4-5)      | No       |
