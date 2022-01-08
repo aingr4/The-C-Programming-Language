@@ -1,4 +1,4 @@
-FILE := $(wildcard *.c)
+FILES := $(wildcard *.c)
 PARAMS := 
 FLAGS :=
 
@@ -6,7 +6,7 @@ all: build run
 
 build:
 	@echo "********** make $@ **********"
-	gcc -o a.out $(FILE) $(FLAGS)
+	gcc -o a.out $(FILES) $(FLAGS)
 	@echo "\n"
 
 run:
