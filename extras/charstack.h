@@ -1,5 +1,5 @@
-#ifndef charstack
-#define charstack
+#ifndef CHARSTACK_H
+#define CHARSTACK_H
 
 #define MAXVAL 100
 
@@ -15,4 +15,4 @@ struct charStack {
 };
 typedef struct charStack charStack;
 
-#endif
+#endif /* CHARSTACK_H */

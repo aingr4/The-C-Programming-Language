@@ -20,7 +20,7 @@ int strrindex(char *s, char t) {
     int i;
 
     i = 0;
-    
+
     while(*s) {
         if (*s == t) {
             break;
