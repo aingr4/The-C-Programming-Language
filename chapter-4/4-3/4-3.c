@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <math.h>
 #include <stdbool.h>
-#include "../../extras/stack/stack.h"
+#include "stack.h"
 
 double polishCalc(char *c);
 
@@ -12,16 +12,15 @@ int main() {
     char * s;
     s = "10 6 % 5.5 2 * *";
 
-    printf("Expected: 16, Actual: %f\n", polishCalc(s));
+    printf("Expected: 44, Actual: %.2f\n", polishCalc(s));
 
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 /* Calculator that can process polish notation equations */
 double polishCalc(char *c) {
 
-    Stack *st;
-    initializeStack(st, sizeof(double));
+    Stack *st = initializeStack(sizeof(double));
 
     bool isLastCharOp, inDecimal;
     double val, power;
@@ -47,7 +46,7 @@ double polishCalc(char *c) {
             power = 1.0;
             inDecimal = false;
         } else if (*c == '+'){
-            double sum = *(double *)pop(st) + *(double *)pop(st); 
+            double sum = *(double*)pop(st) + *(double *)pop(st); 
             push(st, (void *)&sum);
             isLastCharOp = true;
         } else if (*c == '-'){
@@ -60,29 +59,27 @@ double polishCalc(char *c) {
             double op2 = *(double*)pop(st);
             if (op1 != 0.0) {
                 double sum = op2 / op1;
-                push(st, (void *)&sum);
+                push(st, (void*)&sum);
             } else {
                 printf("Error");
             }
             isLastCharOp = true;
-
         } else if (*c == '*'){
-            double sum = *(double *)pop(st) * *(double *)pop(st);
+            double sum = *(double*)pop(st) * *(double*)pop(st);
             push(st, (void *)&sum);
             isLastCharOp = true;
         } else if (*c == '%') {
             double op1 = *(double*)pop(st);
             double op2 = *(double*)pop(st);
             double sum = fmod(op2, op1);
-
-            push(st, (void *)&sum); // Using fmod since the modulo operator (%) only works on integers
+            push(st, (void*)&sum);
             isLastCharOp = true;
         }
         *c++;
     }
 
     if (!isEmpty(st)) {
-        return pop(st);
+        return *(double*)pop(st);
     } else {
         printf("Error");
         return 0.0;

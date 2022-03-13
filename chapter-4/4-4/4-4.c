@@ -1,13 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../../extras/stack/stack.h"
+#include "stack.h"
 
 int main() {
     
-    Stack *stack;
-
-    // Declaring stack of type int
-    initializeStack(stack, sizeof(int));
+    Stack *stack = initializeStack(sizeof(int));
 
     int a, b, c, d;
     a = 1;
@@ -15,19 +12,19 @@ int main() {
     c = 3;
     d = 4;
 
-    push(stack, (void *)&a);
-    push(stack, (void *)&b);
-    push(stack, (void *)&c);
-    push(stack, (void *)&d);
-    push(stack, (void *)&a);
+    push(stack, (void*)&a);
+    push(stack, (void*)&b);
+    push(stack, (void*)&c);
+    push(stack, (void*)&d);
+    push(stack, (void*)&a);
 
     printf("Peeking: %d\n", *(int *)peek(stack));
 
     while (!isEmpty(stack)) {
-        printf("Emptying stack: %d\n", *(int *)pop(stack));
+        printf("Emptying stack: %d\n", *(int*)pop(stack));
     }
 
     destroy(stack);
 
-    return 0;
+    return EXIT_SUCCESS;
 }

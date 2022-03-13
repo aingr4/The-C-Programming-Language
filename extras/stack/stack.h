@@ -20,7 +20,7 @@ typedef struct Stack {
 } Stack;
 
 /* Function declarations */
-void initializeStack(Stack *st, int elemSize);
+Stack* initializeStack(int elemSize);
 bool isEmpty(const Stack *st);
 int size(const Stack *st);
 void *pop(Stack *st);

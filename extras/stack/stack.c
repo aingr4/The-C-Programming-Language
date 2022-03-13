@@ -5,19 +5,38 @@
 #include <stdio.h>
 #include <string.h>
 
-void initializeStack(Stack *st, int elemSize) {
+/*
+* Name: initializeStack
+*
+* Description: Allocates memory for the stack initializes
+*              member variables
+*
+*/
+Stack* initializeStack(int elemSize) {
     byte *storage;
+    Stack *stack;
+
+    stack = (Stack *)malloc(sizeof(Stack));
+    if (stack == NULL) {
+        fprintf(stderr, "Insufficient memory to initialize stack.\n");
+        goto exit;
+    }
 
     storage = (byte *)malloc(elemSize * MAX_STACK_SIZE);
     if (storage == NULL) {
-        fprintf(stderr, "Insufficient memory to initialize stack.\n");
-        exit(1); // Don't like this loud exit
+        fprintf(stderr, "Insufficient memory to initialize stack storage.\n");
+        free(stack);
+        stack = NULL;
+        goto exit;
     }
 
     /* Initialize empty stack*/
-    st->top = 0;
-    st->elemSize = elemSize;
-    st->storage = storage;
+    stack->storage = storage;
+    stack->top = 0;
+    stack->elemSize = elemSize;
+
+exit:
+    return stack;
 }
 
 bool isEmpty(const Stack *st) {
@@ -78,5 +97,5 @@ void *peek(Stack *st) {
 
 void destroy(Stack *st) {
     free(st->storage);
-    st->top = 0;
+    free(st);
 }
