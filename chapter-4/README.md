@@ -9,7 +9,7 @@ This chapter focused on an intro to functions and program structure in C.
 | [4-1](4-1)      | Yes       |
 | [4-2](4-2)      | Yes       |
 | [4-3](4-3)      | Yes       |
-| [4-4](4-4)      | No       |
+| [4-4](4-4)      | Yes       |
 | [4-5](4-5)      | No       |
 | [4-6](4-6)      | No       |
 | [4-7](4-7)      | No       |

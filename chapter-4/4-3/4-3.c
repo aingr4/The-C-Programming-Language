@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <math.h>
 #include <stdbool.h>
-#include "../../extras/doublestack.h"
+#include "../../extras/stack/stack.h"
 
 double polishCalc(char *c);
 
@@ -12,7 +12,7 @@ int main() {
     char * s;
     s = "10 6 % 5.5 2 * *";
 
-    printf("%f\n", polishCalc(s));
+    printf("Expected: 16, Actual: %f\n", polishCalc(s));
 
     return 0;
 }
@@ -20,8 +20,8 @@ int main() {
 /* Calculator that can process polish notation equations */
 double polishCalc(char *c) {
 
-    doubleStack *st = (doubleStack*)malloc(sizeof(doubleStack));
-    initializeStack(st);
+    Stack *st;
+    initializeStack(st, sizeof(double));
 
     bool isLastCharOp, inDecimal;
     double val, power;
@@ -42,45 +42,40 @@ double polishCalc(char *c) {
 
         } else if (isspace(*c) && !isLastCharOp) {
             val = val/power;
-            printf("%f\n", val);
-            push(st, val);
+            push(st, (void*)&val);
             val = 0.0;
             power = 1.0;
             inDecimal = false;
-
         } else if (*c == '+'){
-            // Was having weird interactions with my implementation of stack when popping..
-            // will have to investigate later
-            double op1 = pop(st); 
-            double op2 = pop(st);
-            push(st, op1 + op2);
+            double sum = *(double *)pop(st) + *(double *)pop(st); 
+            push(st, (void *)&sum);
             isLastCharOp = true;
-
         } else if (*c == '-'){
-            double temp = pop(st); 
-            push(st, pop(st) - temp);
+            double op1 = *(double*)pop(st); 
+            double sum = *(double*)pop(st) - op1;
+            push(st, (void *)&sum);
             isLastCharOp = true;
-
         } else if (*c == '/'){
-            double op1 = pop(st);
-            double op2 = pop(st);
+            double op1 = *(double*)pop(st);
+            double op2 = *(double*)pop(st);
             if (op1 != 0.0) {
-                push(st, op2 / op1);
+                double sum = op2 / op1;
+                push(st, (void *)&sum);
             } else {
                 printf("Error");
             }
             isLastCharOp = true;
 
         } else if (*c == '*'){
-            double op1 = pop(st);
-            double op2 = pop(st);
-            push(st, op1 * op2);
+            double sum = *(double *)pop(st) * *(double *)pop(st);
+            push(st, (void *)&sum);
             isLastCharOp = true;
         } else if (*c == '%') {
-            double op1 = pop(st);
-            double op2 = pop(st);
+            double op1 = *(double*)pop(st);
+            double op2 = *(double*)pop(st);
+            double sum = fmod(op2, op1);
 
-            push(st, fmod(op2, op1)); // Using fmod since the modulo operator (%) only works on integers
+            push(st, (void *)&sum); // Using fmod since the modulo operator (%) only works on integers
             isLastCharOp = true;
         }
         *c++;
